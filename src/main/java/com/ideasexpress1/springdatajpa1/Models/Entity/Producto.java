@@ -26,7 +26,7 @@ public class Producto implements Serializable{
     @NotEmpty
     private String Descripcion;
 
-    @NotNull(message = "Debes especificar el precio")
+    @NotNull(message = "Debes especificar el precio del producto")
     private Integer Precio;
 
     @NotNull(message = "Debes especificar las unidades")
