@@ -8,16 +8,15 @@
 }
 body
 {
-  background-image: url("/Imagenes/C1B.gif");
+  background-image: url("../Imagenes/Puente-de-Brooklyn-al-anochecer-Nueva-York-US.jpg");
   background-repeat: no-repeat;
-  background-size: 1330px;
+  background-size: 1360px;
   background-position: 0px 60px;
   background-attachment: fixed;
 }
 #Aux3
 {
   background-color: white;
-  opacity: 0.7;
   margin-top: 30px;
 }
 #Aux4
@@ -27,7 +26,6 @@ body
   padding-right: 50px;
   padding-bottom: 30px;
   background-color: white;
-  opacity: 0.7;
   margin-top: 10px;
 }
 #Aux5:hover
@@ -42,7 +40,6 @@ body
   padding-right: 50px;
   padding-bottom: 30px;
   background-color: white;
-  opacity: 0.7;
   margin-top: 10px;
 }
 

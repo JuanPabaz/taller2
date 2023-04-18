@@ -42,6 +42,10 @@ public class ProductoVenta extends Producto{
         this.Cantidad++;
     }
 
+    public void disminuirCantidad(){
+        this.Cantidad--;
+    }
+
     public Float getTotal(){
         return this.getPrecio() * this.Cantidad;
     }

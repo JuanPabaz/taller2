@@ -75,6 +75,11 @@
     </nav>
 
     <div class="container" id="Aux6">
+        
+        <div class="row text-center" , style="padding: 20px;">
+            <h1 th:text=${titulo}></h1>
+        </div>
+        
         <table class="table">
             <thead class="table-dark">
                 <tr>
@@ -82,11 +87,12 @@
                     <th>Fecha</th>
                     <th>Total</th>
                     <th>Productos</th>
+                    <th>Imprimir Factura</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="venta : ${ventas}">
-                    <td th:text="${venta.Id_Venta}"></td>
+                    <td th:text="${venta.Id_venta}"></td>
                     <td th:text="${venta.Fecha}"></td>
                     <td th:text="${venta.total}"></td>
                     <td>
@@ -99,7 +105,8 @@
                                     <th>Precio</th>
                                     <th>Código</th>
                                     <th>Total</th>
-                                    <th>Imprimir Factura</th>
+                                    
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,12 +117,16 @@
                                     <th th:text="${producto.Precio}"></th>
                                     <th th:text="${producto.codigo}"></th>
                                     <th th:text="${producto.total}"></th>
-                                    <th><a class="btn btn-xs" th:href="@{/Factura}" id="Aux5" style="border-color: black;">Imprimir</a></th>
+                                    
                                 </tr>
                             </tbody>
+                            
                         </table>
+                        
                     </td>
+                    <td><a class="btn btn-xs" th:href="@{/Factura/}+${venta.Id_venta}" id="Aux5" style="border-color: black;">Imprimir</a></td>
                 </tr>
+                
             </tbody>
         </table>
     </div>

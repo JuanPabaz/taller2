@@ -86,6 +86,7 @@ public class VenderController {
             
             if(productoParaVenderAhora.getCodigo().equals(producto_codigo.getCodigo())){
                 productoParaVenderAhora.aumentarCantidad();
+
                 encontrado=true;
                 break;
             }
@@ -108,6 +109,7 @@ public class VenderController {
         ArrayList<ProductoVenta> canasta = this.obtenerCanasta(request);
 
         if(canasta != null && canasta.size() >0 && canasta.get(indice) != null){
+            
             canasta.remove(indice);
             this.guardarCanasta(canasta, request);
         }

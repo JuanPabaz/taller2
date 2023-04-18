@@ -36,7 +36,6 @@ public class Producto implements Serializable{
     private Float Unidades;
 
     @NotNull(message = "El producto debe tener un precio")
-    @DecimalMin("9999.99")
     @DecimalMax("999999.99")
     private Float Precio;
 
