@@ -2,7 +2,6 @@ package com.ideasexpress1.springdatajpa1.Models.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -25,22 +25,22 @@ public class Cliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     
-    @NotNull(message = "El cliente debe tener un nombre")
-    @NotEmpty
+    @NotEmpty(message = "El cliente debe tener un nombre valido")
+    @Size(min = 3, max = 30)
     private String Nombre;
 
-    @NotNull(message = "El cliente debe tener un apellido")
-    @NotEmpty
+    @NotEmpty(message = "El cliente debe tener un apellido valido")
+    @Size(min = 3, max = 30)
     private String Apellido;
 
-    @NotNull(message = "El correo no existe")
-    @NotEmpty
     @Email
     private String Email;
 
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "Fecha invalida")
+    @NotNull
     private Date CreateAt;
 
     public Long getId() {

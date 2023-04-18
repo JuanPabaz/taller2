@@ -1,8 +1,11 @@
 package com.ideasexpress1.springdatajpa1.Controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +45,13 @@ public class ClienteController {
 
     //@RequestMapping(value="/form", method= RequestMethod.POST)
     @PostMapping("/form")
-    public String guardar(Cliente cliente, SessionStatus status){
+    public String guardar(@Valid Cliente cliente, BindingResult resultado, SessionStatus status, Model model){
 
+        if(resultado.hasErrors()){
+            model.addAttribute("titulo", "Formulario de clientes");
+            model.addAttribute("cliente", cliente);
+            return "form";
+        }
         clienteDao.save(cliente);
         status.setComplete();
         return "redirect:listar";
@@ -52,7 +60,7 @@ public class ClienteController {
     @GetMapping("/form/{id}")
     public String editar(@PathVariable(value = "id") Long id, Model model){
 
-        Cliente cliente = null;
+        Cliente cliente = new Cliente();
 
         if(id>0){
             cliente= clienteDao.findOne(id);

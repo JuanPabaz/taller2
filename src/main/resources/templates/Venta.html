@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${titulo}">Document</title>
+    <title th:text=${titulo}>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/Estilo.css}">
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/index}">
@@ -33,8 +34,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: red;" id="Aux">
-                            Productos
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: red;" id="Aux"> Productos
                         </a>
                         <ul class="dropdown-menu">
                             <a class="nav-link active" aria-current="page" th:href="@{/listarp}" id="Aux2">Productos</a>
@@ -74,37 +74,52 @@
         </div>
     </nav>
 
-    <h1 class="text-primary border border-success border-start-0 border-end-0" th:text="${titulo}"></h1>
+    <div class="container" id="Aux6">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id_Venta</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Productos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="venta : ${ventas}">
+                    <td th:text="${venta.Id_Venta}"></td>
+                    <td th:text="${venta.Fecha}"></td>
+                    <td th:text="${venta.total}"></td>
+                    <td>
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Código</th>
+                                    <th>Total</th>
+                                    <th>Imprimir Factura</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="producto: ${venta.productos}">
+                                    <th th:text="${producto.Nombre}"></th>
+                                    <th th:text="${producto.Descripcion}"></th>
+                                    <th th:text="${producto.Cantidad}"></th>
+                                    <th th:text="${producto.Precio}"></th>
+                                    <th th:text="${producto.codigo}"></th>
+                                    <th th:text="${producto.total}"></th>
+                                    <th><a class="btn btn-xs" th:href="@{/Factura}" id="Aux5" style="border-color: black;">Imprimir</a></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <a class="btn btn-primary btn-xs" th:href="@{/formp}" href="">Crear Producto</a>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Unidades</th>
-                <th>Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="producto: ${productos}">
-                <td th:text="${producto.Id_producto}"></td>
-                <td th:text="${producto.nombre}"></td>
-                <td th:text="${producto.descripcion}"></td>
-                <td th:text="${producto.precio}"></td>
-                <td th:text="${producto.unidades}"></td>
-                <td>
-                    <a class="btn btn-primary btn-xs" th:href="@{/formp/}+${producto.Id_producto}">Editar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger btn-xs" th:href="@{/eliminarp/}+${producto.Id_producto}"
-                        onclick="return confirm('Esta seguro de eliminar?')">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/bootstrap.bundle.min.js" type=""></script>
 </body>

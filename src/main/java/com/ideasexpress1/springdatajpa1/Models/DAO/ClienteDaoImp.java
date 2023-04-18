@@ -1,13 +1,10 @@
 package com.ideasexpress1.springdatajpa1.Models.DAO;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.ideasexpress1.springdatajpa1.Models.Entity.Cliente;
 
 @Repository
