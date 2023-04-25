@@ -34,6 +34,7 @@ public class Cliente implements Serializable{
     private String Apellido;
 
     @Email
+    @NotEmpty(message = "El cliente debe tener un email valido")
     private String Email;
 
     @Column(name = "create_at")

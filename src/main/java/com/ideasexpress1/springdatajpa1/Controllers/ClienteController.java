@@ -49,6 +49,7 @@ public class ClienteController {
 
         if(resultado.hasErrors()){
             model.addAttribute("titulo", "Formulario de clientes");
+            model.addAttribute("boton", "Crear cliente");
             model.addAttribute("cliente", cliente);
             return "form";
         }

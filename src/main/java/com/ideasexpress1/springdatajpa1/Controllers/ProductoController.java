@@ -51,6 +51,7 @@ public class ProductoController {
         if(resultado.hasErrors()){
 
             model.addAttribute("titulo", "Crear productos");
+            model.addAttribute("boton", "Crear productos");
             model.addAttribute("producto", producto);
             return "formp";
         }else{
