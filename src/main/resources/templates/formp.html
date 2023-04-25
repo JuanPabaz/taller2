@@ -83,24 +83,28 @@
                 <label class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-6">
                     <input type="text" th:field="*{nombre}" class="form-control">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('Nombre')}" th:errors="*{Nombre}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 col-form-label">Descripcion</label>
                 <div class="col-sm-6">
                     <input type="text" th:field="*{descripcion}" class="form-control">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('Descripcion')}" th:errors="*{Descripcion}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-6">
                     <input type="text" th:field="*{precio}" class="form-control">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('Precio')}" th:errors="*{Precio}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 col-form-label">Unidades</label>
                 <div class="col-sm-6">
                     <input type="text" th:field="*{unidades}" class="form-control">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('Unidades')}" th:errors="*{Unidades}"></small>
                 </div>
             </div>
             <div class="form-group">
