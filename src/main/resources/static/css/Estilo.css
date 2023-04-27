@@ -10,7 +10,7 @@ body
 {
   background-image: url("../Imagenes/Puente-de-Brooklyn-al-anochecer-Nueva-York-US.jpg");
   background-repeat: no-repeat;
-  background-size: 1360px;
+  background-size: 100%;
   background-position: 0px 60px;
   background-attachment: fixed;
 }

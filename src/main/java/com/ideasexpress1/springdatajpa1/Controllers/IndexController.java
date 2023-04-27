@@ -37,6 +37,13 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/base")
+    public String base(){
+        
+
+        return "plantilla/base";
+    }
+
     @GetMapping("/formUsuario")
     public String usuarioregistro(Model model){
         model.addAttribute("titulo", "Formulario de registro de usuarios");
